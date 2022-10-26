@@ -60,11 +60,25 @@
 
 // Esercizio 4
 
+// Versione con controllo tentativi 
+// Da aggiornare con limiter if e else per disabilitare il campo di input
+// (plus) testare aggiunta timer per riprovare ad accedere e riabilitare input.
+
 let nomi = ["Obi-Wan", "Luke", "Han", "Jar-Jar", "C3", "Jabba", "Padmè", "Qui-Gon", "Mace", "R2", "Darth", "Darth", "Sheeve"];
+
+let attemptCounter = 5;
+
+document.getElementById("tentativi").innerHTML = attemptCounter;
+
+function checkTheName(){
+
+    attemptCounter -= 1;
 
 let i = 0;
 
-let nomeControllato = prompt("Inserisci nome richiedente:");
+let controlloreStopCiclo = i;
+
+let nomeControllato = document.getElementById("inputName").value
 
 let variabileControllo = false;
 
@@ -73,18 +87,18 @@ while(i < nomi.length){
     if(nomeControllato == nomi[i]){
 
         variabileControllo = true;
+        controlloreStopCiclo = i
 
-        console.log("Nome presente nella " + i +"° posizione di indice array, ciclo di ricerca terminato");
-        console.log("Valore di i al quale si è interrotta la ricerca: ",i);
         i = nomi.length
     }
     else{
         i++
     }
-
 }
 
 if (variabileControllo == true){
+    console.log("Nome presente nella " + controlloreStopCiclo +"° posizione di indice array, ciclo di ricerca terminato");
+    console.log("Valore di i al quale si è interrotta la ricerca: ", controlloreStopCiclo);
     variabileControllo = false;
 }
 else{
@@ -92,8 +106,49 @@ else{
 
 }
 
-console.log(i);
+console.log(variabileControllo)
 
+console.log(attemptCounter);
+document.getElementById("tentativi").innerHTML = attemptCounter;
+
+}
+    
+
+
+// let i = 0;
+
+// let controlloreCiclo = i;
+
+// let nomeControllato = document.getElementById("inputName").value
+
+// let variabileControllo = false;
+
+// while(i < nomi.length){
+
+//     if(nomeControllato == nomi[i]){
+
+//         variabileControllo = true;
+//         controlloreCiclo = i
+
+//         i = nomi.length
+//     }
+//     else{
+//         i++
+//     }
+// }
+
+// if (variabileControllo == true){
+//     console.log("Nome presente nella " + controlloreCiclo +"° posizione di indice array, ciclo di ricerca terminato");
+//     console.log("Valore di i al quale si è interrotta la ricerca: ",controlloreCiclo);
+//     variabileControllo = false;
+// }
+// else{
+//     console.log("non presente");
+
+// }
+
+// console.log(i);
+// console.log(variabileControllo)
 
 
 
