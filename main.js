@@ -34,27 +34,67 @@
 // console.log("Somma Finale: ", sommaProvvisoria);
 
 
-// Esercizio 3
+// // Esercizio 3
 
-let n = parseInt(prompt("Inserire numero di array da creare"))
+// let n = parseInt(prompt("Inserire numero di array da creare"))
+// let i = 0;
+
+// while(i < n){
+    
+//     var array = new Array();
+
+//     let k = 0;
+
+//     while(k < 10){
+//         array.push(Math.floor(Math.random() * 100));
+
+//         k++
+//     }
+
+//     console.log(array);
+
+//     i++
+// };
+
+
+
+// Esercizio 4
+
+let nomi = ["Obi-Wan", "Luke", "Han", "Jar-Jar", "C3", "Jabba", "Padmè", "Qui-Gon", "Mace", "R2", "Darth", "Darth", "Sheeve"];
+
 let i = 0;
 
-while(i < n){
-    
-    var array = new Array();
+let nomeControllato = prompt("Inserisci nome richiedente:");
 
-    let k = 0;
+let variabileControllo = false;
 
-    while(k < 10){
-        array.push(Math.floor(Math.random() * 100));
+while(i < nomi.length){
 
-        k++
+    if(nomeControllato == nomi[i]){
+
+        variabileControllo = true;
+
+        console.log("Nome presente nella " + i +"° posizione di indice array, ciclo di ricerca terminato");
+        console.log("Valore di i al quale si è interrotta la ricerca: ",i);
+        i = nomi.length
+    }
+    else{
+        i++
     }
 
-    console.log(array);
-    
-    i++
-};
+}
+
+if (variabileControllo == true){
+    variabileControllo = false;
+}
+else{
+    console.log("non presente");
+
+}
+
+console.log(i);
+
+
 
 
 
